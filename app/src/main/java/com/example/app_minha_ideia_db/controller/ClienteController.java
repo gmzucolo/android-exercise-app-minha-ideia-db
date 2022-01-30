@@ -1,23 +1,16 @@
 package com.example.app_minha_ideia_db.controller;
 
-public class ClienteController implements ICrud {
-    @Override
-    public void incluir() {
+import android.content.Context;
+import android.util.Log;
 
-    }
+import com.example.app_minha_ideia_db.api.AppUtil;
+import com.example.app_minha_ideia_db.datasource.AppDataBase;
 
-    @Override
-    public void alterar() {
+public class ClienteController extends AppDataBase {
 
-    }
+    public ClienteController(Context context) {
+        super(context);
 
-    @Override
-    public void deletar() {
-
-    }
-
-    @Override
-    public void listar() {
-
+        Log.d(AppUtil.TAG, "ClienteController: Conectado");
     }
 }
