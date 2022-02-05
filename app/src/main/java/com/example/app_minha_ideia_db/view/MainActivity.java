@@ -34,29 +34,32 @@ public class MainActivity extends AppCompatActivity {
         obj2.setNome("Carol");
         obj2.setEmail("carol@teste.com.br");
 
-        if (clienteControler.incluir(obj1)) {
+        clienteControler.incluir(obj1);
+        clienteControler.incluir(obj2);
 
-            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " incluído com sucesso...", Toast.LENGTH_LONG).show();
-            Log.i(AppUtil.TAG, "Cliente " + obj1.getNome() + " incluído com sucesso...");
-        } else {
-
-            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " não incluído...", Toast.LENGTH_LONG).show();
-            Log.e(AppUtil.TAG, "Cliente " + obj1.getNome() + "não incluído...");
-
-        }
-
-
-        if (clienteControler.incluir(obj2)) {
-
-            Toast.makeText(MainActivity.this, "Cliente " + obj2.getNome() + " incluído com sucesso...", Toast.LENGTH_LONG).show();
-            Log.i(AppUtil.TAG, "Cliente " + obj2.getNome() + " incluído com sucesso...");
-        } else {
-
-            Toast.makeText(MainActivity.this, "Cliente " + obj2.getNome() + " não incluído...", Toast.LENGTH_LONG).show();
-            Log.e(AppUtil.TAG, "Cliente " + obj2.getNome() + "não incluído...");
-
-        }
-
+//        if (clienteControler.incluir(obj1)) {
+//
+//            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " incluído com sucesso...", Toast.LENGTH_LONG).show();
+//            Log.i(AppUtil.TAG, "Cliente " + obj1.getNome() + " incluído com sucesso...");
+//        } else {
+//
+//            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " não incluído...", Toast.LENGTH_LONG).show();
+//            Log.e(AppUtil.TAG, "Cliente " + obj1.getNome() + "não incluído...");
+//
+//        }
+//
+//
+//        if (clienteControler.incluir(obj2)) {
+//
+//            Toast.makeText(MainActivity.this, "Cliente " + obj2.getNome() + " incluído com sucesso...", Toast.LENGTH_LONG).show();
+//            Log.i(AppUtil.TAG, "Cliente " + obj2.getNome() + " incluído com sucesso...");
+//        } else {
+//
+//            Toast.makeText(MainActivity.this, "Cliente " + obj2.getNome() + " não incluído...", Toast.LENGTH_LONG).show();
+//            Log.e(AppUtil.TAG, "Cliente " + obj2.getNome() + "não incluído...");
+//
+//        }
+//
 //        if (clienteControler.deletar(obj1.getId())) {
 //
 //            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " excluído com sucesso...", Toast.LENGTH_LONG).show();

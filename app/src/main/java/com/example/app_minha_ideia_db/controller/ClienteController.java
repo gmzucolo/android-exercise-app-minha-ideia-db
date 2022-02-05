@@ -60,7 +60,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         //enviar os dados (dadoDoObjeto) para classe AppDataBase
         //utilizando  um método capaz de ALTERAR o Obj no banco
         //de dados.
-        return true;
+        return update(ClienteDataModel.TABELA, dadoDoObjeto);
 
     }
 

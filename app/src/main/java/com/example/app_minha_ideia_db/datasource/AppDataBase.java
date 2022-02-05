@@ -79,4 +79,23 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
         return retorno;
     }
+
+    /**
+     * Método para alterar dados no banco de dados
+     *
+     * @return
+     **/
+    public boolean update(String tabela, ContentValues dados) {
+
+        db = getWritableDatabase();
+        boolean retorno = false;
+        //regra de negócio
+        try {
+            //O que deve ser realizado? Update dados.
+            retorno = db.update(tabela, dados, "id = ?", new String[]{String.valueOf(dados.get("id"))}) > 0;
+        } catch (Exception e) {
+            Log.d(AppUtil.TAG, "update: " + e.getMessage());
+        }
+        return retorno;
+    }
 }
