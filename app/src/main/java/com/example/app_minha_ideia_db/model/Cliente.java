@@ -1,8 +1,6 @@
 package com.example.app_minha_ideia_db.model;
 
-import com.example.app_minha_ideia_db.controller.ICrud;
-
-public class Cliente implements ICrud {
+public class Cliente {
 
     private int id; //chave primária no banco de dados
     private String nome;
@@ -34,25 +32,5 @@ public class Cliente implements ICrud {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Override
-    public void incluir() {
-
-    }
-
-    @Override
-    public void alterar() {
-
-    }
-
-    @Override
-    public void deletar() {
-
-    }
-
-    @Override
-    public void listar() {
-
     }
 }
