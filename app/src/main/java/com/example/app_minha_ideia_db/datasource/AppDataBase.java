@@ -60,4 +60,23 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
         return retorno;
     }
+
+    /**
+     * Método para deletar dados no banco de dados
+     *
+     * @return
+     **/
+    public boolean deleteByID(String tabela, int id) {
+
+        db = getWritableDatabase();
+        boolean retorno = false;
+        //regra de negócio
+        try {
+            //O que deve ser realizado? Deletar dados.
+            retorno = db.delete(tabela, "id = ?", new String[]{String.valueOf(id)}) > 0;
+        } catch (Exception e) {
+            Log.d(AppUtil.TAG, "delete: " + e.getMessage());
+        }
+        return retorno;
+    }
 }

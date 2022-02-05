@@ -65,22 +65,8 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
     }
 
     @Override
-    public boolean deletar(Cliente obj) {
-
-        dadoDoObjeto = new ContentValues();
-        //Chave, Valor
-
-        //dadoDoObjeto.put(ClienteDataModel.ID.obj.getId());
-        //ID é a chave primária da tabela, logo é gerada
-        //automaticamente pelo SQLite a cada novo registro
-        //Deletar:?
-        //SQL -> DELETE from TABELA where ID = xxx
-        dadoDoObjeto.put(ClienteDataModel.ID, obj.getId());
-
-        //enviar os dados (dadoDoObjeto) para classe AppDataBase
-        //utilizando  um método capaz de DELETAR o Obj no banco
-        //de dados.
-        return true;
+    public boolean deletar(int id) {
+        return deleteByID(ClienteDataModel.TABELA, id);
 
     }
 

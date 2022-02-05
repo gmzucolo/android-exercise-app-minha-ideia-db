@@ -26,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
         clienteControler = new ClienteController(getApplicationContext());
 
         obj1 = new Cliente();
+        obj2 = new Cliente();
+
         obj1.setNome("Gustavo");
         obj1.setEmail("gustavo@teste.com.br");
 
-        obj2 = new Cliente();
         obj2.setNome("Carol");
         obj2.setEmail("carol@teste.com.br");
 
@@ -55,5 +56,16 @@ public class MainActivity extends AppCompatActivity {
             Log.e(AppUtil.TAG, "Cliente " + obj2.getNome() + "não incluído...");
 
         }
+
+//        if (clienteControler.deletar(obj1.getId())) {
+//
+//            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " excluído com sucesso...", Toast.LENGTH_LONG).show();
+//            Log.i(AppUtil.TAG, "Cliente " + obj1.getNome() + " excluído com sucesso...");
+//        } else {
+//
+//            Toast.makeText(MainActivity.this, "Cliente " + obj1.getNome() + " não excluído...", Toast.LENGTH_LONG).show();
+//            Log.e(AppUtil.TAG, "Cliente " + obj1.getNome() + "não excluído...");
+//
+//        }
     }
 }
