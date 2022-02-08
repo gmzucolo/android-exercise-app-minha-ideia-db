@@ -1,7 +1,9 @@
 package com.example.app_minha_ideia_db.datasource;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -9,6 +11,10 @@ import android.util.Log;
 import com.example.app_minha_ideia_db.api.AppUtil;
 import com.example.app_minha_ideia_db.datamodel.ClienteDataModel;
 import com.example.app_minha_ideia_db.datamodel.ProdutoDataModel;
+import com.example.app_minha_ideia_db.model.Cliente;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -97,5 +103,39 @@ public class AppDataBase extends SQLiteOpenHelper {
             Log.d(AppUtil.TAG, "update: " + e.getMessage());
         }
         return retorno;
+    }
+
+    /**
+     * Método para listar dados no banco de dados
+     *
+     * @return
+     **/
+    @SuppressLint("Range")
+    public List<Cliente> getAllClientes(String tabela) {
+
+        db = getWritableDatabase();
+
+        List<Cliente> clientes = new ArrayList<>();
+        Cliente obj;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                obj = new Cliente();
+                obj.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                obj.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
+                obj.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+
+                clientes.add(obj);
+                Log.i("Listar", "getAllClientes: " +obj.getNome());
+            } while (cursor.moveToNext());
+        }
+
+        return clientes;
     }
 }
